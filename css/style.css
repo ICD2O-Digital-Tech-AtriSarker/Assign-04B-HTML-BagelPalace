@@ -1,4 +1,89 @@
-/* Created by: Mr. Coxall
-* Created on: Sep 2020
-* This file contains the CSS for index.html
-*/
+/* CSS Color Variables */
+:root {
+    --background-color: #3b3b3b;
+    --primary-color: #ff8204;
+    --secondary-color: #738fa7;
+    --font-color: white;
+}
+
+/* background-image: linear-gradient(43deg, var(--background-color) 0%, var(--primary-color) 46%, var(--secondary-color) 100%); */
+body {
+  background-color: var(--background-color);
+  background-size: 100vw 16px;
+  font-family: 'Oswald';
+  color: var(--font-color);
+}
+
+input[type="radio"]:checked+label {
+  background: var(--primary-color);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  color: var(--font-color);
+}
+
+.radioDiv {
+  display: inline-block;
+  width: 100px;
+  aspect-ratio: 1;
+}
+
+.radioDiv input[type="radio"] {
+  display: none;
+}
+
+.radioDiv label {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.5rem;
+}
+
+.mini-order {
+  background-color: var(--primary-color);
+  width: 100px;
+  height: 120px;
+  padding: 10px;
+  margin: 8px;
+  text-align: center;
+  border: 2px solid var(--secondary-color);
+  display: inline-block;
+}
+
+.mini-order img {
+  width: 100px;
+  height: 50px;
+}
+
+.mini-order div {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.mini-order div input {
+  background-color: var(--background-color);
+  width: 30%;
+  height: 100%;
+  text-align: center;
+  margin: 0px 10px 0px 10px ;
+  color: var(--font-color);
+}
+
+/* CSS for hiding number input arrows, taken from StackOverflow */
+.mini-order div input[type='number'] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+.mini-order div input::-webkit-outer-spin-button,
+.mini-order div input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}

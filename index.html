@@ -4,7 +4,7 @@
 <head>
   <!-- Meta data section -->
   <meta charset="utf-8">
-  <meta name="description" content="{desc}, Using Javascript">
+  <meta name="description" content="Bagel Palace Food Order, Using Javascript">
   <meta name="keywords" content="immaculata, icd2o">
   <meta name="author" content="Atri Sarker">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,52 +15,131 @@
   <link rel="icon" type="image/png" sizes="16x16" href="./fav_index/favicon-16x16.png">
   <link rel="manifest" href="./fav_index/site.webmanifest">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="./css/style.css">
-
   <!-- MDL -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
   <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=font-effect-3d">
+  <link rel="stylesheet" href="./css/style.css">
+
   <!-- Title -->
-  <title>{title} in JS</title>
+  <title>Bagel Palace in JS</title>
 </head>
 
 <body>
 
   <!-- Script -->
   <script defer src="./js/script.js"></script>
-
+  <script defer src="./js/input.js"></script>
   <!-- Header -->
-  <h1>{title} in JS</h1>
+  <h1>🥯Bagel Palace in JS</h1>
 
   <!-- INPUT FORM [used for form validation] -->
   <form id="inputForm">
-    <!-- Table For Layout -->
-    <table>
-      <tr>
-        <td>
-          <!--  {value} Input -->
-          <label for="{value}Input">{value}:</label>
-          <input id="{value}Input" type="number" name="{value}" value="" step="0.01" min="" max="" />
-          <br>
-        </td>
-        <td>
-          <!-- Image of JS LOGO -->
-          <img class="contentImg" src="./images/jsLogo.png" alt="javascript Logo!">
-          <br>
-        </td>
-      </tr>
-    </table>
+    <div>
+      <h3>Pick Size</h3>
 
-    <!-- Results Button -->
-    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit"
-      value="submit" id="resultBtn">Get Result!</button>
+      <!-- Radio Buttons -->
+      <div>
+        <div class="radioDiv">
+          <input type="radio" id="small" name="size" value="small">
+          <label for="small">Small</label>
+        </div>
+        <div class="radioDiv">
+          <input type="radio" checked="checked" id="medium" name="size" value="medium">
+          <label for="medium">Medium</label>
+        </div>
+        <div class="radioDiv">
+          <input type="radio" id="large" name="size" value="large">
+          <label for="large">Large</label>
+        </div>
+      </div>
+
+      <h3>Toppings</h3>
+      <label>Enter Amount Of Toppings (15 Max):</label>
+      <input id="amountOfToppings" type="number" min="0" step="1" max="15" value="3">
+      <div id="toppingsContainer">
+        <div id="toppingTemplate">
+          <select selected="egg">
+            <optgroup label="Proteins">
+              <option value="sausage-patty">Sausage Patty 🍖</option>
+              <option value="vegetable-patty">Vegetable Patty 🥦</option>
+              <option value="egg">Egg 🍳</option>
+            </optgroup>
+            <optgroup label="Veggies">
+              <option value="tomato">Tomato 🍅</option>
+              <option value="red-onion">Red Onion 🧅</option>
+              <option value="lettuce">Lettuce 🥬</option>
+            </optgroup>
+            <optgroup label="Extra">
+              <option value="cheese">Cheese 🧀</option>
+              <option value="onion-ring">Onion Ring 🧅</option>
+              <option value="hash-brown">Hash Brown 🥔</option>
+              <option value="coleslaw">Coleslaw 🥗</option>
+            </optgroup>
+            <optgroup label="Sauces and Dressings">
+              <option value="ketchup">Ketchup 🍅</option>
+              <option value="mayo">Mayonaise 🥪</option>
+              <option value="mustard">Mustard 🌭</option>
+              <option value="bbq">Barbeque Sauce 🔥</option>
+              <option value="ranch">Ranch 🥗</option>
+            </optgroup>
+          </select>
+        </div>
+      </div>
+
+      <!-- Sides orders and Drinks -->
+      <div class="mini-order">
+        <img src="./images/jsLogo.svg">
+        <p>Onion Rings</p>
+        <div>
+        <button type="button" onclick="this.parentNode.querySelector('input').stepDown()">-</button>
+        <input type="number" name="onionRingsAmount" id="onionRingsAmount" min="0" max="99" value="0">
+        <button type="button" onclick="this.parentNode.querySelector('input').stepUp()">+</button>
+        </div>
+      </div>
+      <div class="mini-order">
+        <img src="./images/jsLogo.svg">
+        <p>Fries</p>
+        <div>
+        <button type="button" onclick="this.parentNode.querySelector('input').stepDown()">-</button>
+        <input type="number" name="friesAmount" id="friesAmount" min="0" max="99" value="0">
+        <button type="button" onclick="this.parentNode.querySelector('input').stepUp()">+</button>
+        </div>
+      </div>
+      <div class="mini-order">
+        <img src="./images/jsLogo.svg">
+        <p>Water (1000ml)</p>
+        <div>
+        <button type="button" onclick="this.parentNode.querySelector('input').stepDown()">-</button>
+        <input type="number" name="waterAmount" id="waterAmount" min="0" max="99" value="0">
+        <button type="button" onclick="this.parentNode.querySelector('input').stepUp()">+</button>
+        </div>
+      </div>
+      <div class="mini-order">
+        <img src="./images/jsLogo.svg">
+        <p>Pepsi (500ml)</p>
+        <div>
+        <button type="button" onclick="this.parentNode.querySelector('input').stepDown()">-</button>
+        <input type="number" name="pepsiAmount" id="pepsiAmount" min="0" max="99" value="0">
+        <button type="button" onclick="this.parentNode.querySelector('input').stepUp()">+</button>
+        </div>
+      </div>
+
+      <br>
+      <!-- Results Button -->
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit"
+        value="submit" id="resultBtn">Get Result!</button>
+
+
   </form>
 
   <!-- Result -->
-  <p><b id="outputResult"> </b> </p>
+  <div id="resultDiv">
+    
+  </div>
 
 </body>
 
