@@ -58,9 +58,10 @@
       </div>
 
       <h3>Toppings</h3>
-      <label>Enter Amount Of Toppings (15 Max):</label>
-      <input id="amountOfToppings" type="number" min="0" step="1" max="15" value="3">
-      <div id="toppingsContainer">
+      <label>Enter Amount Of Toppings (99 Max):</label>
+      <input id="amountOfToppings" type="number" min="0" step="1" max="99" value="3">
+      <table><tr>
+      <td id="toppingsContainer">
         <div id="toppingTemplate">
           <select selected="egg">
             <optgroup label="Proteins">
@@ -88,43 +89,47 @@
             </optgroup>
           </select>
         </div>
-      </div>
+      </td>
+      <td>
+        <canvas id="sandwichDisplay"></canvas>
+      </td>
+      </tr></table>
 
       <!-- Sides orders and Drinks -->
-      <div class="mini-order">
+      <div class="mini-order side-order">
         <img src="./images/jsLogo.svg">
         <p>Onion Rings</p>
         <div>
-        <button type="button" onclick="this.parentNode.querySelector('input').stepDown()">-</button>
-        <input type="number" name="onionRingsAmount" id="onionRingsAmount" min="0" max="99" value="0">
-        <button type="button" onclick="this.parentNode.querySelector('input').stepUp()">+</button>
+          <button type="button" onclick="this.parentNode.querySelector('input').stepDown()">-</button>
+          <input type="number" name="onionRingsAmount" id="onionRingsAmount" min="0" max="99" value="0">
+          <button type="button" onclick="this.parentNode.querySelector('input').stepUp()">+</button>
         </div>
       </div>
-      <div class="mini-order">
+      <div class="mini-order side-order">
         <img src="./images/jsLogo.svg">
         <p>Fries</p>
         <div>
-        <button type="button" onclick="this.parentNode.querySelector('input').stepDown()">-</button>
-        <input type="number" name="friesAmount" id="friesAmount" min="0" max="99" value="0">
-        <button type="button" onclick="this.parentNode.querySelector('input').stepUp()">+</button>
+          <button type="button" onclick="this.parentNode.querySelector('input').stepDown()">-</button>
+          <input type="number" name="friesAmount" id="friesAmount" min="0" max="99" value="0">
+          <button type="button" onclick="this.parentNode.querySelector('input').stepUp()">+</button>
         </div>
       </div>
-      <div class="mini-order">
+      <div class="mini-order drink-order">
         <img src="./images/jsLogo.svg">
         <p>Water (1000ml)</p>
         <div>
-        <button type="button" onclick="this.parentNode.querySelector('input').stepDown()">-</button>
-        <input type="number" name="waterAmount" id="waterAmount" min="0" max="99" value="0">
-        <button type="button" onclick="this.parentNode.querySelector('input').stepUp()">+</button>
+          <button type="button" onclick="this.parentNode.querySelector('input').stepDown()">-</button>
+          <input type="number" name="waterAmount" id="waterAmount" min="0" max="99" value="0">
+          <button type="button" onclick="this.parentNode.querySelector('input').stepUp()">+</button>
         </div>
       </div>
-      <div class="mini-order">
+      <div class="mini-order drink-order">
         <img src="./images/jsLogo.svg">
         <p>Pepsi (500ml)</p>
         <div>
-        <button type="button" onclick="this.parentNode.querySelector('input').stepDown()">-</button>
-        <input type="number" name="pepsiAmount" id="pepsiAmount" min="0" max="99" value="0">
-        <button type="button" onclick="this.parentNode.querySelector('input').stepUp()">+</button>
+          <button type="button" onclick="this.parentNode.querySelector('input').stepDown()">-</button>
+          <input type="number" name="pepsiAmount" id="pepsiAmount" min="0" max="99" value="0">
+          <button type="button" onclick="this.parentNode.querySelector('input').stepUp()">+</button>
         </div>
       </div>
 
@@ -138,7 +143,7 @@
 
   <!-- Result -->
   <div id="resultDiv">
-    
+
   </div>
 
 </body>
