@@ -1,3 +1,9 @@
+/*
+* Created by: Atri Sarker
+* Created on: May, 2024
+* Description: This file contains the style.css for the Bagel Palace website.
+*/
+
 /* CSS Color Variables */
 :root {
     --background-color: #3b3b3b;
@@ -7,6 +13,8 @@
 }
 
 /* background-image: linear-gradient(43deg, var(--background-color) 0%, var(--primary-color) 46%, var(--secondary-color) 100%); */
+
+/* body */
 body {
   background-color: var(--background-color);
   background-size: 100vw 16px;
@@ -14,26 +22,19 @@ body {
   color: var(--font-color);
 }
 
-
-input[type="radio"]:checked+label {
-  background: var(--primary-color);
-  border-color: var(--secondary-color);
-  border-width: 4px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px);
-  color: var(--font-color);
-}
-
+/* Radio Button container */
 .radioDiv {
   display: inline-block;
   width: 100px;
   aspect-ratio: 1;
 }
 
-.radioDiv input[type="radio"] {
-  display: none;
-}
-
+/* Radio Button */
+/* I am using label element to style 
+because <input> cannot be styled, only hidden
+this works because clicking the labels
+counts as clicking the buttons
+*/
 .radioDiv label {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
@@ -48,6 +49,22 @@ input[type="radio"]:checked+label {
   font-size: 1.5rem;
 }
 
+/* Radio Button selection */
+input[type="radio"]:checked+label {
+  background: var(--primary-color);
+  border-color: var(--secondary-color);
+  border-width: 4px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  color: var(--font-color);
+}
+
+/* Hide default radio button look */
+.radioDiv input[type="radio"] {
+  display: none;
+}
+
+/* div for side-orders and drinks */
 .mini-order {
   width: 100px;
   height: 120px;
@@ -58,11 +75,14 @@ input[type="radio"]:checked+label {
   display: inline-block;
 }
 
+/* Size the image for side-orders and drinks */
 .mini-order img {
   width: 100px;
   height: 50px;
 }
 
+/* Size the image for input+buttons container 
+for side orders and drinks */
 .mini-order div {
   width: calc(100% + 16px);
   height: 16%;
@@ -74,6 +94,7 @@ input[type="radio"]:checked+label {
   margin-left: -8px;
 }
 
+/* Style for side-order and drink inputs */
 .mini-order div input {
   width: 30%;
   height: 100%;
@@ -82,39 +103,47 @@ input[type="radio"]:checked+label {
   color: black;
 }
 
+/* red background for side-order */
 .side-order {
   background-color: #802828;
 }
+/* blue background for drinks */
 .drink-order {
   background-color: #284a80;
 }
-/* CSS for hiding number input arrows, taken from StackOverflow */
+
+
+/* CSS for hiding number input side arrows, taken from StackOverflow */
 .mini-order div input[type='number'] {
     -moz-appearance:textfield; /* Firefox */
 }
-
+/* Chromium */
 .mini-order div input::-webkit-outer-spin-button,
 .mini-order div input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
+/* topping dropdowns */
 select {
   background-color: grey;
   margin: 2px 0px 2px 8px;
 }
 
-
+/* Result|reciept container */
 #resultDiv {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.01);
+  margin: 8px;
 }
 
+/* Bolded text within reciept is bigger and in red */
+/* For subtotal, tax, and total */
 #resultDiv b {
   color: #cd3232;
   font-size: 24px;
 }
 
+/* Canvas for sandwich display */
 #sandwichDisplay {
-  
   display: block;
   width: 100%;
   height: 100%;
