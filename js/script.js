@@ -169,7 +169,7 @@ function getResult() {
     reciept.push(`+$${toppingCostTotal.toFixed(2)} [${toppingNames[topping]} x${toppingAmount}]`);
   }
 
-  // Get Topping Premium [30% extra cost for large]]
+  // Get Topping Premium [30% extra cost for large]
   let toppingPremium = summedToppingsCost * toppingsValue[size];
   // Add the charge to the reciept
   reciept.push(`+$${toppingPremium.toFixed(2)} [${sizeNames[size]} Toppings additional cost]`);
