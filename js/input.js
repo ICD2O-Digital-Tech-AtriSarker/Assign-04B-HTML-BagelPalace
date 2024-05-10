@@ -141,7 +141,7 @@ const sandwichDisplay = document.getElementById('sandwichDisplay');
 const render = sandwichDisplay.getContext('2d');
 
 // FILEPATH FOR TOPPING IMAGES
-const imagePath = '../images/toppings/';
+const imagePath = './images/toppings/';
 
 // function that gets image using filepath and name/value
 function image(toppingName) {
