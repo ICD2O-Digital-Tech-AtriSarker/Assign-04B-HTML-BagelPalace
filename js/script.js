@@ -62,14 +62,14 @@ const toppingCosts = {
   "ranch": 0.10
 }
 
-// Size Names, for reciept charges
+// Size Names, for receipt charges
 const sizeNames = {
   "small": "Small Size",
   "medium": "Medium Size",
   "large": "Large Size"
 }
 
-// Toppings Names, for reciept charges
+// Toppings Names, for receipt charges
 const toppingNames = {
   "sausage-patty": "Sausage Patty 🍖",
   "vegetable-patty": "Vegetable Patty 🥦",
@@ -143,12 +143,12 @@ function getResult() {
 
 
   // Initialize receipt, list that contains/logs all charges
-  let reciept = [];
+  let receipt = [];
   
   // Get size cost
   let sizeCost = sizeCosts[size];
-  // Add size cost to reciept
-  reciept.push(`+$${sizeCost.toFixed(2)} [${sizeNames[size]}]`)
+  // Add size cost to receipt
+  receipt.push(`+$${sizeCost.toFixed(2)} [${sizeNames[size]}]`)
 
   // Get toppings cost
   let summedToppingsCost = 0.00;
@@ -165,46 +165,46 @@ function getResult() {
     // Add it to the total topping cost sum
     summedToppingsCost += toppingCostTotal;
 
-    // Add charge to reciept
-    reciept.push(`+$${toppingCostTotal.toFixed(2)} [${toppingNames[topping]} x${toppingAmount}]`);
+    // Add charge to receipt
+    receipt.push(`+$${toppingCostTotal.toFixed(2)} [${toppingNames[topping]} x${toppingAmount}]`);
   }
 
   // Get Topping Premium [30% extra cost for large]
   let toppingPremium = summedToppingsCost * toppingsValue[size];
-  // Add the charge to the reciept
-  reciept.push(`+$${toppingPremium.toFixed(2)} [${sizeNames[size]} Toppings additional cost]`);
+  // Add the charge to the receipt
+  receipt.push(`+$${toppingPremium.toFixed(2)} [${sizeNames[size]} Toppings additional cost]`);
 
   // Initialize variable to store summed cost for side-orders and drinks
   let summedSideOrderAndDrinksCost = 0.00;
 
   // Go through each side-order and drink
   // If ordered, add the total cost (amount*cost) to the summed cost
-  // also, add the charge to the reciept
+  // also, add the charge to the receipt
 
   // Onion Rings
   if (onionRingsAmount>0) {
     let cost = onionRingsAmount * onionRingsCost;
     summedSideOrderAndDrinksCost += cost;
-    reciept.push(`+$${cost.toFixed(2)} [Onion Rings x${onionRingsAmount}]`);
+    receipt.push(`+$${cost.toFixed(2)} [Onion Rings x${onionRingsAmount}]`);
   }
   // French Fries
   if (frenchFriesAmount>0) {
     let cost = frenchFriesAmount * frenchFriesCost;
     summedSideOrderAndDrinksCost += cost;
-    reciept.push(`+$${cost.toFixed(2)} [French Fries x${frenchFriesAmount}]`);
+    receipt.push(`+$${cost.toFixed(2)} [French Fries x${frenchFriesAmount}]`);
   }
   // Pepsi
   if (pepsiAmount>0) {
     let cost = pepsiAmount * pepsiCost;
     summedSideOrderAndDrinksCost += cost;
-    reciept.push(
+    receipt.push(
       `+$${cost.toFixed(2)} [500ml Pepsi x${pepsiAmount}]`);
   }
   // Water
   if (waterAmout>0) {
     let cost = waterAmout * waterCost;
     summedSideOrderAndDrinksCost += cost;
-    reciept.push(
+    receipt.push(
       `+$${cost.toFixed(2)} [1000ml Water x${waterAmout}]`);
   }
 
@@ -215,13 +215,13 @@ function getResult() {
   let tax = Math.round(100*subtotal*HST)/100;
   let total = subtotal + tax;
 
-  // Add subtotal, tax, and total to reciept [bolded]
-  reciept.push(`<b>Subtotal: $${subtotal.toFixed(2)}</b>`);
-  reciept.push(`<b>HST: $${tax.toFixed(2)}</b>`);
-  reciept.push(`<b>Total: $${total.toFixed(2)}</b>`);
+  // Add subtotal, tax, and total to receipt [bolded]
+  receipt.push(`<b>Subtotal: $${subtotal.toFixed(2)}</b>`);
+  receipt.push(`<b>HST: $${tax.toFixed(2)}</b>`);
+  receipt.push(`<b>Total: $${total.toFixed(2)}</b>`);
 
-  // Display the reciept, all charges separed by a line break
-  resultDiv.innerHTML = reciept.join("<br>");
+  // Display the receipt, all charges separed by a line break
+  resultDiv.innerHTML = receipt.join("<br>");
 }
 
 // Connect form submission to getResult()
