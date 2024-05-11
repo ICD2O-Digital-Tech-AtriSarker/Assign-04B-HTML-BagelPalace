@@ -220,7 +220,7 @@ function getResult() {
   receipt.push(`<b>HST: $${tax.toFixed(2)}</b>`);
   receipt.push(`<b>Total: $${total.toFixed(2)}</b>`);
 
-  // Display the receipt, all charges separed by a line break
+  // Display the receipt, all charges separated by a line break
   resultDiv.innerHTML = receipt.join("<br>");
 }
 
