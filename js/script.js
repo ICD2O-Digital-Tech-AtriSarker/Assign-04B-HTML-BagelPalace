@@ -82,7 +82,7 @@ const toppingNames = {
   "hash-brown": "Hash Brown 🥔",
   "coleslaw": "Coleslaw 🥗",
   "ketchup": "Ketchup 🍅",
-  "mayo": "Mayonaise 🥪",
+  "mayo": "Mayonnaise 🥪",
   "mustard": "Mustard 🌭",
   "bbq": "Barbeque Sauce 🔥",
   "ranch": "Ranch 🥗"
