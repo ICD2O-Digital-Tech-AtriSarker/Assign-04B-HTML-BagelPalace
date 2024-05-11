@@ -210,7 +210,9 @@ function getResult() {
 
   // Calculate subtotal, tax, and total
   let subtotal = sizeCost + summedToppingsCost + toppingPremium + summedSideOrderAndDrinksCost;
-  let tax = subtotal * HST;
+
+  // calculate tax whilst rounding to 2 decimal places
+  let tax = Math.round(100*subtotal*HST)/100;
   let total = subtotal + tax;
 
   // Add subtotal, tax, and total to reciept [bolded]
